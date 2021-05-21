@@ -11,6 +11,17 @@
   height: 80%;
 }
 
+.ant-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-form-item {
+  margin: 10px 0 10px 0;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
