@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "main": "server.js",
-  "type": "module",
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^9.0.2",
