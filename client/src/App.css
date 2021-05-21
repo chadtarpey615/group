@@ -11,15 +11,18 @@
   height: 80%;
 }
 
-.ant-form {
+.add-task {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  margin-top: 20px;
+  border-top: 1px solid;
 }
 
-.ant-form-item {
-  margin: 10px 0 10px 0;
+.input-field {
+  display: flex;
+  margin: 20px 0 20px 0;
+  text-align: flex-start;
 }
 
 @media (prefers-reduced-motion: no-preference) {
