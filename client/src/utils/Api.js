@@ -6,6 +6,7 @@ export default {
     },
 
     saveTask: (data) => {
+        console.log(data)
         return axios.post("/api/tasks", data);
     }
 }
