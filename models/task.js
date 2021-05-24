@@ -10,7 +10,7 @@ const taskSchema = new Schema({
         type: String,
         required: true,
     },
-    synopsis: String,
+
     date: {
         type: Date,
         default: Date.now

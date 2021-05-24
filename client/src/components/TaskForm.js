@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import API from "../utils/Api"
 const TaskForm = () => {
 
-    const [tasks, setTasks] = useState({})
+    const [tasks, setTasks] = useState([])
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -22,6 +22,7 @@ const TaskForm = () => {
     }
     return (
         <form className="add-task">
+            <h1>Add Task Page</h1>
             <div className="input-field">
                 <label htmlFor="title">Task Title</label>
                 <input onChange={handleInputChange} type="text" name="title" placeholder="enter task title" />
