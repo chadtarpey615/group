@@ -18,7 +18,6 @@ module.exports = {
     create: function (req, res) {
         // console.log(res)
         db.Task
-        console.log(req.body.title)
             .create(req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));

@@ -2,21 +2,40 @@
   text-align: center;
 } */
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-.container {
+/* .container {
   height: 80%;
-}
+} */
 
 .add-task {
   display: flex;
   flex-direction: column;
+  max-width: 500px;
+  overflow: auto;
   align-items: center;
-  margin-top: 20px;
-  border-top: 1px solid;
+  text-align: flex-start;
+  margin: 30px auto;
+  border: 1px solid steelblue;
+}
+
+.btn > button {
+  background: #000;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 5px;
+  color: white;
+  font-size: 15px;
 }
 
 .input-field {
