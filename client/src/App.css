@@ -46,10 +46,39 @@
 
 .main {
   display: flex;
-  flex-flow: column;
-  justify-content: center;
+  flex-direction: column;
+  column-gap: 20px;
+  justify-items: center;
+  background: #f4f4f4;
+  margin: 20px 10px;
+  padding: 20px 30px;
+  cursor: pointer;
+  padding-bottom: 10px;
+  width: 60%;
+  margin-left: 17rem;
+  margin-top: 4rem;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.task {
+  border: 1px solid;
+}
+
+.task h1,
+p {
+  display: flex;
+  position: relative;
+  left: 35%;
   align-items: center;
-  margin: 20px 0;
+  padding: 10px;
+  align-self: flex-start;
+}
+
+.title {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 4em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
