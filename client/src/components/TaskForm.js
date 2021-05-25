@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import API from "../utils/Api"
+import API from "../utils/Api";
+
+
 const TaskForm = () => {
 
 
@@ -16,12 +18,20 @@ const TaskForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!newTask.title || !newTask.description || !newTask.date) {
+            alert("Please fill out all forms")
+            return
+        }
         API.saveTask({
             title: newTask.title,
             description: newTask.description,
             date: newTask.date,
         })
-            .then((res) => console.log(res))
+            .then(() => setNewTask({
+                title: "",
+                description: "",
+                date: ""
+            }))
             .catch(err => console.log(`sorry, there was an ${err}`))
 
     }

@@ -6,4 +6,8 @@ router.route("/")
     .post(taskController.create);
 
 
+router.route("/:id")
+    .delete(taskController.remove);
+
+
 module.exports = router;
