@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import API from "../utils/Api"
+import API from "../utils/Api";
+import { FaTrashAlt } from "react-icons/fa"
 const Tasks = () => {
 
     const [tasks, setTasks] = useState([]);
@@ -18,6 +19,12 @@ const Tasks = () => {
             .catch(err => console.error(err))
     }
 
+    const deleteTask = (id) => {
+        API.deleteTask(id)
+            .then(res => loadTask())
+            .catch(err => console.log(err))
+    }
+
 
     // const tasksList = Array.from(tasks)
     const tasksList = tasks.map(task => {
@@ -27,6 +34,7 @@ const Tasks = () => {
                     <h1>{task.title}</h1>
                     <p>{task.description}</p>
                     <p>{task.date}</p>
+                    <FaTrashAlt onClick={() => deleteTask(task._id)} />
                 </div>
             )
     })

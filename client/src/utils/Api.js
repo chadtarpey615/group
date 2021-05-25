@@ -8,5 +8,9 @@ export default {
     saveTask: (data) => {
         console.log(data)
         return axios.post("/api/tasks", data);
+    },
+
+    deleteTask: (id) => {
+        return axios.delete("/api/tasks/" + id)
     }
 }
