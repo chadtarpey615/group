@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
     getTask: () => {
-        return axios.get("")
+        return axios.get("/api/tasks")
     },
 
     saveTask: (data) => {
