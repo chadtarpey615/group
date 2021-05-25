@@ -2,19 +2,24 @@ import React, { useState, useEffect } from 'react'
 import API from "../utils/Api"
 const TaskForm = () => {
 
-    const [tasks, setTasks] = useState([])
+
+
+    const [newTask, setNewTask] = useState([]);
+
+
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setTasks({ ...tasks, [name]: value })
+        setNewTask({ ...newTask, [name]: value })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         API.saveTask({
-            title: tasks.title,
-            description: tasks.description,
-            date: tasks.date,
+            title: newTask.title,
+            description: newTask.description,
+            date: newTask.date,
         })
             .then((res) => console.log(res))
             .catch(err => console.log(`sorry, there was an ${err}`))
@@ -38,6 +43,8 @@ const TaskForm = () => {
             <div className="btn">
                 <button onClick={handleSubmit}>Submit Task</button>
             </div>
+
+
         </form>
     )
 }
