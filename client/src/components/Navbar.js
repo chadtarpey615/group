@@ -31,12 +31,12 @@ const Navbar = () => {
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                    <IconButton edge="start" color="inherit" aria-label="menu">
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        News
-          </Typography>
+                        <Link to={"/"}>Home</Link>
+                    </Typography>
                     <Link to={"/tasks"}><Button color="inherit">Add Task</Button></Link>
                 </Toolbar>
             </AppBar>

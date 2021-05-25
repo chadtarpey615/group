@@ -12,14 +12,27 @@ const Tasks = () => {
 
     const loadTask = () => {
         API.getTask()
-            .then(res => setTasks(...tasks, res.data))
+            .then(res => setTasks(res.data))
 
             .catch(err => console.error(err))
     }
+
+
+    // const tasksList = Array.from(tasks)
+    const tasksList = tasks.map(task => {
+        if (tasks)
+            return (
+                <div className="main">
+                    <h1>{task.title}</h1>
+                    <p>{task.description}</p>
+                    <p>{task.date}</p>
+                </div>
+            )
+    })
     return (
-        <div>
-            <h1>All Tasks here</h1>
-        </div>
+        <>
+            {tasksList}
+        </>
     )
 }
 
