@@ -3,6 +3,7 @@ import API from "../utils/Api"
 const Tasks = () => {
 
     const [tasks, setTasks] = useState([]);
+    const [isEditing, setIsEditing] = useState(false);
 
 
     useEffect(() => {
@@ -22,16 +23,33 @@ const Tasks = () => {
     const tasksList = tasks.map(task => {
         if (tasks)
             return (
-                <div className="main">
+                <div className="task">
                     <h1>{task.title}</h1>
                     <p>{task.description}</p>
                     <p>{task.date}</p>
                 </div>
             )
     })
+
+    {
+        if (isEditing) {
+            return (
+                <form>
+                    <div className="input-field">
+                        <label htmlFor="description">Task Description</label>
+                        <input type="text" name="description" placeholder="enter task description" />
+                    </div>
+                </form>
+            )
+        }
+    }
     return (
+
         <>
-            {tasksList}
+            <h1 className="title">Task Tracker</h1>
+            <div onCLick={() => setIsEditing(true)} className="main">
+                {tasksList}
+            </div>
         </>
     )
 }
