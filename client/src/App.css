@@ -40,9 +40,7 @@
 
 .btn {
   background-color: #434343;
-  display: flex;
-  flex-direction: column;
- align-items: center;
+ 
 }
 
 .input-field {
@@ -69,7 +67,14 @@
 }
 
 .task {
+  display: grid;
   border: 1px solid;
+  box-shadow: 1px 1px;
+  width: 480px;
+  position: relative;
+  left: 30%;
+  /* justify-content: space-around; */
+  /* align-items: center; */
 }
 
 .task h1,
@@ -92,6 +97,10 @@ p {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.edit {
+  background-color: #09f528;
 }
 
 .App-header {
