@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import API from "../utils/Api";
+import TaskForm from "./TaskForm"
 import { FaTrashAlt } from "react-icons/fa"
 const Tasks = () => {
 
     const [tasks, setTasks] = useState([]);
-    const [isEditing, setIsEditing] = useState(false);
+    const [newTask, setNewTask] = useState(false);
 
 
     useEffect(() => {
@@ -25,6 +26,14 @@ const Tasks = () => {
             .catch(err => console.log(err))
     }
 
+    // const newInput = () => {
+    //     console.log()
+    //     return (
+
+    //     )
+
+    // }
+
 
     // const tasksList = Array.from(tasks)
     const tasksList = tasks.map(task => {
@@ -35,29 +44,26 @@ const Tasks = () => {
                     <p>{task.description}</p>
                     <p>{task.date}</p>
                     <FaTrashAlt onClick={() => deleteTask(task._id)} />
+                    <button>edit task</button>
                 </div>
             )
     })
 
-    {
-        if (isEditing) {
-            return (
-                <form>
-                    <div className="input-field">
-                        <label htmlFor="description">Task Description</label>
-                        <input type="text" name="description" placeholder="enter task description" />
-                    </div>
-                </form>
-            )
-        }
-    }
-    return (
+    if (newTask)
+        return (
 
+            <>
+                <TaskForm />
+
+            </>
+        )
+
+    // if (!isEditing)
+    return (
         <>
-            <h1 className="title">Task Tracker</h1>
-            <div onCLick={() => setIsEditing(true)} className="main">
-                {tasksList}
-            </div>
+            <h1 className="title"> Task Tracker</h1>
+            <button className="btn" onClick={() => setNewTask(true)}>Add Task</button>
+            {tasksList}
         </>
     )
 }

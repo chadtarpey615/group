@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import API from "../utils/Api";
 
 
-const TaskForm = () => {
+const TaskForm = (props) => {
 
 
 
