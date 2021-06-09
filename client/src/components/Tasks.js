@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import API from "../utils/Api";
+import TaskForm from "./TaskForm"
 import { FaTrashAlt } from "react-icons/fa"
 const Tasks = () => {
 
@@ -25,6 +26,14 @@ const Tasks = () => {
             .catch(err => console.log(err))
     }
 
+    // const newInput = () => {
+    //     console.log()
+    //     return (
+
+    //     )
+
+    // }
+
 
     // const tasksList = Array.from(tasks)
     const tasksList = tasks.map(task => {
@@ -35,31 +44,26 @@ const Tasks = () => {
                     <p>{task.description}</p>
                     <p>{task.date}</p>
                     <FaTrashAlt onClick={() => deleteTask(task._id)} />
+                    <button onClick={(id) => setIsEditing(true)}>edit task</button>
                 </div>
             )
     })
 
-    {
-        if (isEditing) {
-            return (
-                <form>
-                    <div className="input-field">
-                        <label htmlFor="description">Task Description</label>
-                        <input type="text" name="description" placeholder="enter task description" />
-                    </div>
-                </form>
-            )
-        }
-    }
-    return (
+    if (isEditing)
+        return (
 
-        <>
-            <h1 className="title">Task Tracker</h1>
-            <div onCLick={() => setIsEditing(true)} className="main">
+            <>
+                <TaskForm />
+
+            </>
+        )
+
+    if (!isEditing)
+        return (
+            <>
                 {tasksList}
-            </div>
-        </>
-    )
+            </>
+        )
 }
 
 export default Tasks
