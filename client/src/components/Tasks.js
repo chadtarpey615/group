@@ -5,7 +5,7 @@ import { FaTrashAlt } from "react-icons/fa"
 const Tasks = () => {
 
     const [tasks, setTasks] = useState([]);
-    const [isEditing, setIsEditing] = useState(false);
+    const [newTask, setNewTask] = useState(false);
 
 
     useEffect(() => {
@@ -44,12 +44,12 @@ const Tasks = () => {
                     <p>{task.description}</p>
                     <p>{task.date}</p>
                     <FaTrashAlt onClick={() => deleteTask(task._id)} />
-                    <button onClick={(id) => setIsEditing(true)}>edit task</button>
+                    <button>edit task</button>
                 </div>
             )
     })
 
-    if (isEditing)
+    if (newTask)
         return (
 
             <>
@@ -58,12 +58,14 @@ const Tasks = () => {
             </>
         )
 
-    if (!isEditing)
-        return (
-            <>
-                {tasksList}
-            </>
-        )
+    // if (!isEditing)
+    return (
+        <>
+            <h1 className="title"> Task Tracker</h1>
+            <button className="btn" onClick={() => setNewTask(true)}>Add Task</button>
+            {tasksList}
+        </>
+    )
 }
 
 export default Tasks
